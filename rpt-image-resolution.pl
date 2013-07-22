@@ -27,8 +27,7 @@ sub export {
 	my $pass = $cfg->param('pass');
 	my $port = $cfg->param('port');
 	my $host = $cfg->param('host');
-
-
+	
 	my $session = IMu::Session->new();
 	
 	$session->setHost($host);
@@ -38,11 +37,10 @@ sub export {
 
 	# connect to the locations module
 	my $locs = IMu::Module->new('emultimedia', $session);
-
+	
 	my $terms = ['MulMimeType', "image"];
-
 	$locs->findTerms($terms);
-
+		
 	my $columns = ['ChaImageWidth,irn,ChaImageHeight,DetResourceType,MulIdentifier'];
 	my $results = $locs->fetch('start',$params{"offset"},$params{"count"},$columns);
 	my $rows = $results->{rows};
@@ -61,6 +59,7 @@ sub export {
 	foreach my $row (@$rows) {
 		# print Dumper ($row);
 		writeToFile( $row );
+		say "writing row";
 	}
 	return %params;
 }
@@ -91,7 +90,7 @@ print LOG_FILE "irn,height,width,resouce type,filename\n";
 my %return = ( 
 	'allDone' => 0,
 	'offset' => 0,
-	'count' => 1000,
+	'count' => 10000,
 	);
 		
 while(not $return{"allDone"}) {
