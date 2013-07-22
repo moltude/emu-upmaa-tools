@@ -3,9 +3,9 @@ use warnings;
 use strict; 
 use feature qw(say);
 
+use Config::Simple;
 use FindBin;
 use lib "$FindBin::Bin/./imu-1.0.03/";
-
 
 use IMu;
 use IMu::Session;
@@ -15,7 +15,7 @@ use Data::Dumper;
 
 sub export {	
 	my $paramsref = shift;
-	
+	/Users/scottwilliams/Code/Perl/emu-upmaa-tools/imu-1.0.03/IMu/Exception.pm
 	my %params = %{$paramsref};
 	
 	say "Offset: " . $params{"offset"};
@@ -81,7 +81,7 @@ sub writeToFile {
 # begin main
 
 # LOG_FILE
-my $file = "../ImageExport.csv";
+my $file = "../rpt-image-resolution.csv";
 unless(open LOG_FILE, '>'.$file) {
 	die "\nUnable to create LOG_FILE\n";
 }
@@ -92,7 +92,7 @@ print LOG_FILE "irn,height,width,resouce type,filename\n";
 my %return = ( 
 	'allDone' => 0,
 	'offset' => 0,
-	'count' => 10000,
+	'count' => 1000,
 	);
 		
 while(not $return{"allDone"}) {
