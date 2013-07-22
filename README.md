@@ -7,7 +7,7 @@ fyi, i'm learning perl so please excuse the sloppy/poor perl.
 
 rpt-image-resolution.pl
 ========
-since querying by image resolution is not *easy* and it something that needs to be reported on this script will 
+since querying by image resolution is not *easy* because the fields are Strings and not Integers (so < > don't work) and it something that needs to be reported on this script will 
 report on all images that are less than a specified resolution. For UPMAA the minimum size of a 'web publishable' image
 should be 800px. So we like to know when we are pushing images less than 800px to the collections site. 
 
