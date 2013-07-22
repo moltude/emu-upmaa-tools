@@ -15,7 +15,6 @@ use Data::Dumper;
 
 sub export {	
 	my $paramsref = shift;
-	/Users/scottwilliams/Code/Perl/emu-upmaa-tools/imu-1.0.03/IMu/Exception.pm
 	my %params = %{$paramsref};
 	
 	say "Offset: " . $params{"offset"};
@@ -32,9 +31,9 @@ sub export {
 
 	my $session = IMu::Session->new();
 	
-	$session->setHost();
-	$session->setPort();
-	$session->connect();
+	$session->setHost($host);
+	$session->setPort($port);
+	$session->connect($user,$pass);
 	$session->login();
 
 	# connect to the locations module
