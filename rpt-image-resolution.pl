@@ -4,8 +4,9 @@ use strict;
 use feature qw(say);
 
 use FindBin;
-# use lib 'C:\\Dwimperl\\perl\\lib\\imu-1.0.03\\';
-# use lib 'c:\\Perl64\\lib\\imu-1.0.03\\';
+use lib "$FindBin::Bin/./imu-1.0.03/";
+
+
 use IMu;
 use IMu::Session;
 use IMu::Module;
@@ -19,6 +20,16 @@ sub export {
 	
 	say "Offset: " . $params{"offset"};
 	
+	
+	my $cfg = new Config::Simple('imu.ini');
+
+	# accessing values:
+	my $user = $cfg->param('user');
+	my $pass = $cfg->param('pass');
+	my $port = $cfg->param('port');
+	my $host = $cfg->param('host');
+
+
 	my $session = IMu::Session->new();
 	
 	$session->setHost();
@@ -70,7 +81,7 @@ sub writeToFile {
 # begin main
 
 # LOG_FILE
-my $file = "C:\\Users\\scottwi\\Desktop\\ImageExport.csv";
+my $file = "../ImageExport.csv";
 unless(open LOG_FILE, '>'.$file) {
 	die "\nUnable to create LOG_FILE\n";
 }
