@@ -1,6 +1,10 @@
 emu-upmaa-tools
 =================================
 
+a group of scirpts and tools that were may have been written to solve a one-off problem but i don't want to write again.
+
+fyi, i'm learning perl so please excuse the sloppy/poor perl. 
+
 rpt-image-resolution.pl
 ========
 since querying by image resolution is not *easy* and it something that needs to be reported on this script will 
